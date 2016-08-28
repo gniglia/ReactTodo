@@ -1,0 +1,19 @@
+{
+  "name": "reacttodo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gniglia/ReactTodo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gniglia/ReactTodo/issues"
+  },
+  "homepage": "https://github.com/gniglia/ReactTodo#readme"
+}
