@@ -1,9 +1,20 @@
-import React from "react"
+import React from "react";
+import Title from "./Title"
+import Issue from "./issue/Issue"
 
 export default class Layout extends React.Component {
-  render () {
+  constructor() {
+    super();
+    this.state = { title: "this is a test..." };
+  }
+
+  render() {
     return (
-      <h1>It Works!</h1>
+      <div>
+        <Title title={this.state.title}/>
+
+        <Issue/>
+      </div>
     )
   }
 }
