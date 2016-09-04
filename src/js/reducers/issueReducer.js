@@ -1,32 +1,19 @@
-export default function reducer(state={
-    issues: [],
-    fetching: false,
-    fetched: false,
-    error: null
-  }, action) {
+const issues = (state=[], action) => {
+  switch (action.type) {
+    case 'ADD_ISSUE':
+      return [...state, {
+        id: action.id,
+        title: action.title,
+        state: action.state,
+      }];
+    case 'REMOVE_ISSUE':
+    return [
+      ...state.slice(0, action.index),
+      ...state.slice(action.index, 1)
+    ];
+    default:
+      return state;
+  }
+};
 
-    switch (action.type) {
-      case "FETCH_ISSUES": {
-        return {...state}
-      }
-      case "FETCH_ISSUES_REJECTED": {
-        return {...state, fetching: false, error: action.payload}
-      }
-      case "FETCH_ISSUES_FULFILLED": {
-        return {
-          ...state,
-          fetching: false,
-          fetched: true,
-          issues: action.payload,
-        }
-      }
-      case "ADD_ISSUE": {
-        return {
-          ...state,
-          issues: [...state.issues, action.payload],
-        }
-      }
-    }
-
-    return state
-}
+export default issues;

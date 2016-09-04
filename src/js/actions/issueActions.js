@@ -1,22 +1,17 @@
-import axios from "axios";
+let nextId = 0;
 
-export function fetchIssues() {
-  return function(dispatch) {
-    axios.get("https://api.github.com/repos/gniglia/reacttodo/issues")
-      .then((response) => {
-        dispatch({type: "FETCH_ISSUES_FULFILLED", payload: response.data})
-      })
-      .catch((err) => {
-        dispatch({type: "FETCH_ISSUES_REJECTED", payload: err})
-      })
+export const addIssue = (title) => {
+  return {
+    type: 'ADD_ISSUE',
+    id: nextId++,
+    title: title,
+    state: 'open'
   }
-}
+};
 
-export function addIssue(text) {
-  return function(dispatch) {
-    axios.post("https://api.github.com/repos/gniglia/reacttodo/issues", { title: text })
-      .then((response) => {
-        //fetchIssues()
-      })
+export const removeIssue = (index) => {
+  return {
+    type: 'REMOVE_ISSUE',
+    index
   }
-}
+};
