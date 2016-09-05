@@ -1,15 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import { removeIssue } from "../../actions/issueActions";
+import { getIssue, removeIssue } from "../../actions/issueActions";
 
 const IssueList = (props) => {
   let getIssues = () => {
-    return props.issues.map((issue, i) => {
+    return props.issues.map((issue) => {
       return (
         <li key={issue.id}>
           <h3>{issue.title}</h3>
-          <h5>{issue.state}</h5>
-          <button onClick={() => props.onRemove(i)}>remove</button>
+          <button onClick={() => props.onSelect(issue)}>details</button>
+          <button onClick={() => props.onRemove(issue.id)}>remove</button>
         </li>
       );
     })
@@ -29,8 +29,11 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRemove: (index) => {
-      dispatch(removeIssue(index));
+    onRemove: (id) => {
+      dispatch(removeIssue(id));
+    },
+    onSelect: (issue) => {
+      dispatch(getIssue(issue));
     }
   }
 };

@@ -9,9 +9,16 @@ export const addIssue = (title) => {
   }
 };
 
-export const removeIssue = (index) => {
+export const removeIssue = (id) => {
   return {
     type: 'REMOVE_ISSUE',
-    index
+    id
+  }
+};
+
+export const getIssue = (issue) => {
+  return {
+    type: 'GET_ISSUE',
+    issue: issue
   }
 };

@@ -7,10 +7,7 @@ const issues = (state=[], action) => {
         state: action.state,
       }];
     case 'REMOVE_ISSUE':
-    return [
-      ...state.slice(0, action.index),
-      ...state.slice(action.index, 1)
-    ];
+      return state.filter(issue => issue.id !== action.id);
     default:
       return state;
   }
