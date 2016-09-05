@@ -1,7 +1,9 @@
-import { combineReducers } from "redux"
+import { combineReducers } from "redux";
 
-import issues from "./issueReducer"
+import issues from "./issueReducer";
+import activeIssue from "./activeIssueReducer";
 
 export default combineReducers({
-  issues
-})
+  issues,
+  activeIssue
+});
