@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Button from "../Button/Button";
 import { addIssue } from "../../actions/issueActions";
 
 const AddIssue = (props) => {
@@ -7,10 +8,14 @@ const AddIssue = (props) => {
   return (
     <div class="form-group">
       <input ref={node => {input = node;}} class="form-control" placeholder="Issue name" />
-      <button onClick={() => {
-        props.onAddIssue(input.value);
-        input.value = '';
-      }} class="btn btn-primary btn-sm">Add Issue</button>
+
+      <Button
+        text="Add issue"
+        onClickHandler={() => {
+          props.onAddIssue(input.value);
+          input.value = '';
+        }}
+        className="btn btn-primary btn-sm" />
     </div>
   );
 };

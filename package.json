@@ -36,5 +36,9 @@
     "redux-thunk": "^2.1.0",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.15.0"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Button from "../Button/Button";
 import { getIssue, removeIssue } from "../../actions/issueActions";
 
 const IssueList = (props) => {
@@ -8,8 +9,16 @@ const IssueList = (props) => {
       return (
         <li key={issue.id}>
           <h3>{issue.title}</h3>
-          <button class="btn btn-default btn-xs" onClick={() => props.onSelect(issue)}>details</button>
-          <button class="btn btn-default btn-xs" onClick={() => props.onRemove(issue.id)}>remove</button>
+
+          <Button
+            text="details"
+            onClickHandler={() => props.onSelect(issue)}
+            className="btn btn-default btn-xs" />
+
+          <Button
+            text="remove"
+            onClickHandler={() => props.onRemove(issue.id)}
+            className="btn btn-default btn-xs" />
         </li>
       );
     })
