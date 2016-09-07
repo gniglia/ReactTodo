@@ -5,12 +5,12 @@ import { addIssue } from "../../actions/issueActions";
 const AddIssue = (props) => {
   let input;
   return (
-    <div>
-      <input ref={node => {input = node;}} />
+    <div class="form-group">
+      <input ref={node => {input = node;}} class="form-control" placeholder="Issue name" />
       <button onClick={() => {
         props.onAddIssue(input.value);
         input.value = '';
-      }}>Add Issue</button>
+      }} class="btn btn-primary btn-sm">Add Issue</button>
     </div>
   );
 };
