@@ -7,11 +7,10 @@ const IssueDetails = (props) => {
   }
 
   return (
-    <div>
-      "Details for issue:"
-      <div>{props.issue.id}</div>
-      <div>{props.issue.title}</div>
-      <div>{props.issue.state}</div>
+    <div class="form-group">
+      <h4>Details for issue:</h4>
+      <h3>{props.issue.title} <small>{props.issue.state}</small></h3>
+      <h4>{props.issue.id}</h4>
     </div>
   );
 };

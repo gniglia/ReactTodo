@@ -8,15 +8,15 @@ const IssueList = (props) => {
       return (
         <li key={issue.id}>
           <h3>{issue.title}</h3>
-          <button onClick={() => props.onSelect(issue)}>details</button>
-          <button onClick={() => props.onRemove(issue.id)}>remove</button>
+          <button class="btn btn-default btn-xs" onClick={() => props.onSelect(issue)}>details</button>
+          <button class="btn btn-default btn-xs" onClick={() => props.onRemove(issue.id)}>remove</button>
         </li>
       );
     })
   }
 
   return (
-    <ul>
+    <ul class="list-unstyled">
       {getIssues()}
     </ul>
   );
