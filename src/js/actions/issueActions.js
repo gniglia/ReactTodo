@@ -1,8 +1,10 @@
+import * as types from './actionTypes';
+
 let nextId = 0;
 
 export const addIssue = (title) => {
   return {
-    type: 'ADD_ISSUE',
+    type: types.ADD_ISSUE,
     id: nextId++,
     title: title,
     state: 'open'
@@ -11,14 +13,14 @@ export const addIssue = (title) => {
 
 export const removeIssue = (id) => {
   return {
-    type: 'REMOVE_ISSUE',
+    type: types.REMOVE_ISSUE,
     id
   }
 };
 
 export const getIssue = (issue) => {
   return {
-    type: 'GET_ISSUE',
+    type: types.GET_ISSUE,
     issue: issue
   }
 };

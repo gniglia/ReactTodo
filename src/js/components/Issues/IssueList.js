@@ -1,6 +1,8 @@
 import React from "react";
+import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
-import { getIssue, removeIssue } from "../../actions/issueActions";
+import Button from "../Button/Button";
+import * as issueActions from "../../actions/issueActions";
 
 const IssueList = (props) => {
   let getIssues = () => {
@@ -8,8 +10,16 @@ const IssueList = (props) => {
       return (
         <li key={issue.id}>
           <h3>{issue.title}</h3>
-          <button class="btn btn-default btn-xs" onClick={() => props.onSelect(issue)}>details</button>
-          <button class="btn btn-default btn-xs" onClick={() => props.onRemove(issue.id)}>remove</button>
+
+          <Button
+            text="details"
+            onClickHandler={() => props.actions.getIssue(issue)}
+            className="btn btn-default btn-xs" />
+
+          <Button
+            text="remove"
+            onClickHandler={() => props.actions.removeIssue(issue.id)}
+            className="btn btn-default btn-xs" />
         </li>
       );
     })
@@ -29,12 +39,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    onRemove: (id) => {
-      dispatch(removeIssue(id));
-    },
-    onSelect: (issue) => {
-      dispatch(getIssue(issue));
-    }
+    actions: bindActionCreators(issueActions, dispatch)
   }
 };
 

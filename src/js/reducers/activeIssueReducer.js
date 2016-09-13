@@ -1,6 +1,8 @@
+import { GET_ISSUE } from '../actions/actionTypes';
+
 const activeIssue = (state=null, action) => {
   switch (action.type) {
-    case 'GET_ISSUE':
+    case GET_ISSUE:
       return action.issue;
     default:
       return state;
