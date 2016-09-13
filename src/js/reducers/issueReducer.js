@@ -1,12 +1,14 @@
+import { ADD_ISSUE, REMOVE_ISSUE } from '../actions/actionTypes';
+
 const issues = (state=[], action) => {
   switch (action.type) {
-    case 'ADD_ISSUE':
+    case ADD_ISSUE:
       return [...state, {
         id: action.id,
         title: action.title,
         state: action.state,
       }];
-    case 'REMOVE_ISSUE':
+    case REMOVE_ISSUE:
       return state.filter(issue => issue.id !== action.id);
     default:
       return state;

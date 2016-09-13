@@ -1,7 +1,8 @@
 import React from "react";
+import { bindActionCreators } from 'redux';
 import { connect } from "react-redux";
 import Button from "../Button/Button";
-import { addIssue } from "../../actions/issueActions";
+import * as issueActions from "../../actions/issueActions";
 
 const AddIssue = (props) => {
   let input;
@@ -12,7 +13,7 @@ const AddIssue = (props) => {
       <Button
         text="Add issue"
         onClickHandler={() => {
-          props.onAddIssue(input.value);
+          props.actions.addIssue(input.value);
           input.value = '';
         }}
         className="btn btn-primary btn-sm" />
@@ -22,9 +23,7 @@ const AddIssue = (props) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onAddIssue: (title) => {
-      dispatch(addIssue(title));
-    }
+    actions: bindActionCreators(issueActions, dispatch)
   }
 };
 export default connect(null, mapDispatchToProps)(AddIssue);
